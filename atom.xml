@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+    <id>https://wang-xin-hang.github.io</id>
+    <title>道阻且长 行则将至</title>
+    <updated>2022-11-02T15:30:14.455Z</updated>
+    <generator>https://github.com/jpmonette/feed</generator>
+    <link rel="alternate" href="https://wang-xin-hang.github.io"/>
+    <link rel="self" href="https://wang-xin-hang.github.io/atom.xml"/>
+    <subtitle>这，或许是我人生中的一个新的开始。</subtitle>
+    <logo>https://wang-xin-hang.github.io/images/avatar.png</logo>
+    <icon>https://wang-xin-hang.github.io/favicon.ico</icon>
+    <rights>All rights reserved 2022, 道阻且长 行则将至</rights>
+    <entry>
+        <title type="html"><![CDATA[图床测试]]></title>
+        <id>https://wang-xin-hang.github.io/post/tu-chuang-ce-shi/</id>
+        <link href="https://wang-xin-hang.github.io/post/tu-chuang-ce-shi/">
+        </link>
+        <updated>2022-11-02T15:17:14.000Z</updated>
+        <content type="html"><![CDATA[<h1 id="ahhaahahahahah">ahhaahahahahah</h1>
+<figure data-type="image" tabindex="1"><img src="https://raw.githubusercontent.com/wang-xin-hang/picturemd/main/202211022317521.png" alt="image-20221102231750495" loading="lazy"></figure>
+<h1 id="ahhaahahahahah-2">ahhaahahahahah</h1>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Python中if __name__ == "__main__": 有什么作用]]></title>
+        <id>https://wang-xin-hang.github.io/post/python-zhong-if-__name__-__main__-you-shi-me-zuo-yong/</id>
+        <link href="https://wang-xin-hang.github.io/post/python-zhong-if-__name__-__main__-you-shi-me-zuo-yong/">
+        </link>
+        <updated>2022-10-16T10:49:23.000Z</updated>
+        <summary type="html"><![CDATA[<p>经常看到别人的python文件中会有以下几行命令，它们有什么作用呢？</p>
+]]></summary>
+        <content type="html"><![CDATA[<p>经常看到别人的python文件中会有以下几行命令，它们有什么作用呢？</p>
+<!-- more -->
+<pre><code class="language-python">if __name__ == '__main__':
+    main()
+</code></pre>
+<p>python文件既可以作为一个脚本被执行，也可以作为一个模块被引入 ；当我们直接执行print(__name__)时，结果是__main__.</p>
+<pre><code class="language-python">print(__name__)
+
+&gt;&gt;__main__
+</code></pre>
+<p>当python文件被当作一个模块被导入时，结果为hello，这是因为当python文件A被当作模块被导入B时，运行B，文件A中的命令会被执行一遍，当A被导入时，它的__name__属性会自动改为文件A的名字。</p>
+<pre><code class="language-python">import hello
+
+&gt;&gt;hello
+</code></pre>
+<p>因此，我们将__name__ 和'__main__'比较，就可以判断代码是作为脚本被执行还是作为模块被导入。</p>
+]]></content>
+    </entry>
+</feed>
