@@ -1,0 +1,426 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+    <id>https://wang-xin-hang.github.io</id>
+    <title>道阻且长 行则将至</title>
+    <updated>2024-03-04T11:55:48.295Z</updated>
+    <generator>https://github.com/jpmonette/feed</generator>
+    <link rel="alternate" href="https://wang-xin-hang.github.io"/>
+    <link rel="self" href="https://wang-xin-hang.github.io/atom.xml"/>
+    <subtitle>&lt;h2&gt;南风知我意，吹梦到西洲。&lt;/h2&gt;</subtitle>
+    <logo>https://wang-xin-hang.github.io/images/avatar.png</logo>
+    <icon>https://wang-xin-hang.github.io/favicon.ico</icon>
+    <rights>All rights reserved 2024, 道阻且长 行则将至</rights>
+    <entry>
+        <title type="html"><![CDATA[Python]]></title>
+        <id>https://wang-xin-hang.github.io/post/python/</id>
+        <link href="https://wang-xin-hang.github.io/post/python/">
+        </link>
+        <updated>2024-03-04T11:51:17.000Z</updated>
+        <content type="html"><![CDATA[<h1 id="python27">Python2.7</h1>
+<h2 id="写出中文内容">写出中文内容</h2>
+<pre><code class="language-python">sstr1 = u&quot;中文&quot;
+with open(path,&quot;w&quot;) as file_obj:
+    file_obj.write(sstr1.encode(&quot;utf-8&quot;))
+file_obj.close()
+</code></pre>
+<h1 id="python3">Python3</h1>
+<h2 id="案例">案例</h2>
+<h3 id="得到文件名">得到文件名</h3>
+<pre><code class="language-python">import tkinter
+from tkinter import filedialog
+#去掉tk窗口
+root = tkinter.Tk()
+root.withdraw()
+#弹出文件选择窗口
+a = filedialog.askopenfilenames(filetypes=[(&quot;x_t&quot;,&quot;.x_t&quot;),(&quot;ALL&quot;,&quot;.*&quot;)])
+print(a)
+</code></pre>
+<h3 id="获取文件名">获取文件名</h3>
+<h4 id="获取文件夹名列表">获取文件夹名列表</h4>
+<p>要获取指定路径下的所有文件夹，我们需要使用os模块的<code>listdir()</code>函数来列出指定路径中的所有文件和文件夹。然后，我们可以使用<code>isdir()</code>函数来检查每个路径是否是文件夹。</p>
+<p>下面是一个示例代码，演示了如何获取指定路径下的所有文件夹：</p>
+<pre><code class="language-python">import os
+
+def get_folders(path):
+    folders = []
+    files = os.listdir(path)
+    for file in files:
+        if os.path.isdir(os.path.join(path, file)):
+            folders.append(file)
+    return folders
+
+path = &quot;/path/to/directory&quot;  # 将路径替换为你想要获取文件夹的路径
+folders = get_folders(path)
+print(folders)
+</code></pre>
+<p>在这个示例中，我们使用<code>get_folders()</code>函数获取指定路径下的所有文件夹，并将它们存储在一个列表中。然后，我们使用<code>print()</code>函数打印这个文件夹列表。</p>
+<h4 id="获取文件夹的完整路径">获取文件夹的完整路径</h4>
+<p>如果你想要获取每个文件夹的完整路径，而不仅仅是它们的名称，你可以使用<code>join()</code>函数将路径和文件夹名称连接起来。</p>
+<p>下面是修改后的代码示例，演示了如何获取每个文件夹的完整路径：</p>
+<pre><code class="language-python">import os
+
+def get_folders_path(path):
+    folders = []
+    files = os.listdir(path)
+    for file in files:
+        folder_path = os.path.join(path, file)
+        if os.path.isdir(folder_path):
+            folders.append(folder_path)
+    return folders
+
+path = &quot;/path/to/directory&quot;  # 将路径替换为你想要获取文件夹的路径
+folders = get_folders_path(path)
+print(folders[0].replace(&quot;\\&quot;, &quot;/&quot;))
+</code></pre>
+<p>在这个示例中，我们使用<code>get_folders_path()</code>函数获取指定路径下的所有文件夹的完整路径，并将它们存储在一个列表中。然后，我们使用<code>print()</code>函数打印这个路径列表。</p>
+<h4 id="递归获取所有子文件夹">递归获取所有子文件夹</h4>
+<p>如果你想要获取指定路径下的所有子文件夹，包括子文件夹的子文件夹，你可以使用递归的方式来实现。我们可以修改<code>get_folders()</code>或<code>get_folders_path()</code>函数，使它们递归地调用自身，直到没有更多文件夹为止。</p>
+<p>下面是一个递归获取所有子文件夹的示例代码：</p>
+<pre><code class="language-python">import os
+
+def get_all_folders(path):
+    folders = []
+    for root, dirs, files in os.walk(path):
+        for dir in dirs:
+            folder_path = os.path.join(root, dir)
+            folders.append(folder_path)
+    return folders
+
+path = &quot;/path/to/directory&quot;  # 将路径替换为你想要获取文件夹的路径
+folders = get_all_folders(path)
+print(folders)
+</code></pre>
+<p>在这个示例中，我们使用<code>get_all_folders()</code>函数递归地获取指定路径下的所有文件夹，并将它们存储在一个列表中。我们使用<code>os.walk()</code>函数遍历指定路径下的所有文件夹和文件，并使用<code>join()</code>函数将路径和文件夹名称连接起来。</p>
+<h2 id="打包方法">打包方法</h2>
+<h3 id="pyinstaller打包方法">PyInstaller打包方法</h3>
+<p>将需要打包的文件与图标（.ico）放在同一个文件夹下，打包命令如下：</p>
+<pre><code class="language-python">import os
+import subprocess
+from pathlib import Path
+import nicegui
+
+cmd = [
+    'PyInstaller',
+    'ER.py',
+    '--name',
+    'myapp', # name of your app
+    '--onefile',
+    '--windowed',
+    '--clean',
+    '-i=any.ico',
+    #'--windowed', # prevent console appearing, only use with ui.run(native=True, ...)
+    '--add-data', f'{Path(nicegui.__file__).parent}{os.pathsep}nicegui'
+]
+subprocess.call(cmd)
+</code></pre>
+<h3 id="nuitka打包方法">Nuitka打包方法</h3>
+<h2 id="输出图片的像素坐标及颜色">输出图片的像素坐标及颜色</h2>
+<pre><code class="language-python">from PIL import Image
+
+# 打开图像文件
+image = Image.open('PixPin2024-01-2621-18-56-imageonline.co-8628153.png')
+
+# 获取图像的宽度和高度
+width, height = image.size
+
+# 获取图像的像素数据
+pixels = image.load()
+
+# 创建一个集合，用于存储不同的颜色
+colors = set()
+
+# 遍历每个像素
+for y in range(height):
+    for x in range(width):
+        # 将当前像素的 RGB 值添加到集合中
+        colors.add(pixels[x, y])
+
+# 输出不同颜色的数量
+print(&quot;该图片共有&quot;, len(colors), &quot;种颜色&quot;)
+
+
+dict_pixel_color = {}
+# 遍历每个像素，并输出其坐标和颜色
+for x in range(width):
+    for y in range(height):
+
+        color = image.getpixel((x, y))
+        if isinstance(color, int):
+            color = (color, color, color)
+        color = '#{:02x}{:02x}{:02x}'.format(*color)
+        Pixel = x+0.5,(y+0.5)*(-1)
+        if color in dict_pixel_color.keys():
+            list_pixel = dict_pixel_color[color]
+            list_pixel.append(Pixel)
+            dict_pixel_color[color] = list_pixel
+        else:
+            list_pixel = []
+            list_pixel.append(Pixel)
+            dict_pixel_color[color] = list_pixel
+
+# 打开文件，如果不存在就创建它
+file = open(r&quot;D:\AA-Work\Hypermesh\test\image\textfile.txt&quot;, &quot;w+&quot;)
+for i in dict_pixel_color:
+    # 写入内容到文件中
+    file.write(i+&quot;;&quot;)
+    for b in dict_pixel_color[i]:
+        file.write(str(b[0])+&quot;,&quot;+str(b[1])+&quot;:&quot;)
+    file.write(&quot;\n&quot;)
+
+# 关闭文件
+file.close()
+</code></pre>
+<h2 id="数据库sqlite3模块的使用">数据库SQLite3模块的使用</h2>
+<h3 id="使用数据的宏观过程">使用数据的宏观过程</h3>
+<figure data-type="image" tabindex="1"><img src="https://wang-xin-hang.github.io/post-images/1709553094727.png" alt="" loading="lazy"></figure>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[NiceGui]]></title>
+        <id>https://wang-xin-hang.github.io/post/nicegui/</id>
+        <link href="https://wang-xin-hang.github.io/post/nicegui/">
+        </link>
+        <updated>2024-03-04T11:46:42.000Z</updated>
+        <content type="html"><![CDATA[<h2 id="弹出文件选择框">弹出文件选择框</h2>
+<pre><code class="language-Python">from nicegui import ui, events, app
+from pathlib import Path
+
+ui.query(&quot;.nicegui-content&quot;).classes(&quot;flex-center&quot;)
+
+
+async def choose_file():
+    files = await app.native.main_window.create_file_dialog(
+        file_types=(&quot;所有文件(*)&quot;, &quot;txt(*.txt)&quot;, &quot;Python(*.py)&quot;, &quot;Excel(*.xlsx)&quot;))
+    if files:
+        print(files[0])
+    else:
+        print(&quot;没有选择文件&quot;)
+
+
+ui.button(&quot;选择文件&quot;, on_click=choose_file)
+
+ui.run(reload=False, native=True)
+
+</code></pre>
+<h2 id="登录界面尝试">登录界面尝试</h2>
+<pre><code class="language-python">from nicegui import ui
+ui.query(&quot;.nicegui-content&quot;).classes(&quot;flex-center&quot;)
+with ui.row():
+    ui.label('用户名:')
+    username = ui.input()
+
+with ui.row():
+    ui.label('密码:')
+    password = ui.input()
+def pb():
+    s.set_visibility(True)
+def dljg():
+    if username.value == &quot;123&quot;:
+        ui.notify(f'欢迎，{username.value}!')
+        pb()
+    else:
+         ui.notify(&quot;请输入正确的用户名及密码&quot;)
+
+ui.button('登录', on_click=lambda: dljg())
+
+with ui.column():
+    s = ui.toggle({1: 'A', 2: 'B', 3: 'C'})
+    s.set_visibility(False)
+ui.run(reload=False, native=True)
+</code></pre>
+<h2 id="设置背景颜色">设置背景颜色</h2>
+<pre><code class="language-python">style(&quot;background-color: #18345b&quot;)
+</code></pre>
+<p>按钮组</p>
+<pre><code class="language-python">from nicegui import ui
+
+with ui.row().classes('w-full items-center'):
+    result = ui.label().classes('mr-auto')
+    with ui.button(icon='menu'):
+        with ui.menu() as menu:
+            ui.menu_item('Menu item 1', lambda: result.set_text('Selected item 1'))
+            ui.menu_item('Menu item 2', lambda: result.set_text('Selected item 2'))
+            ui.menu_item('Menu item 3 (keep open)',
+                         lambda: result.set_text('Selected item 3'), auto_close=False)
+            ui.separator()
+            ui.menu_item('Close', on_click=menu.close)
+
+ui.run()
+</code></pre>
+<h2 id="更改宽或高">更改宽或高</h2>
+<pre><code class="language-python">echart.style(&quot;width: 600px; height: 400px&quot;)
+</code></pre>
+<pre><code>&quot;max-width: 300px; height: 150px;&quot;
+</code></pre>
+<h2 id="居中">居中</h2>
+<pre><code class="language-py">classes('self-center')
+</code></pre>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[在Spacecliam中复刻by face功能]]></title>
+        <id>https://wang-xin-hang.github.io/post/zai-spacecliam-zhong-fu-ke-by-face-gong-neng/</id>
+        <link href="https://wang-xin-hang.github.io/post/zai-spacecliam-zhong-fu-ke-by-face-gong-neng/">
+        </link>
+        <updated>2023-12-11T13:32:58.000Z</updated>
+        <content type="html"><![CDATA[<h2 id="使用方法">使用方法</h2>
+<p>在Spacecliam中打开脚本，设置<code>angle_0</code>参数，此参数为搜索角度阈值，单位为°。</p>
+<p>选中一个面，运行脚本。</p>
+<figure data-type="image" tabindex="1"><img src="https://wang-xin-hang.github.io/post-images/1702301712335.png" alt="" loading="lazy"></figure>
+<p>运行效果如下。</p>
+<figure data-type="image" tabindex="2"><img src="https://wang-xin-hang.github.io/post-images/1702301724186.png" alt="" loading="lazy"></figure>
+<h2 id="脚本代码">脚本代码</h2>
+<pre><code class="language-python"># Python Script, API Version = V18
+import math
+
+#定义角度阈值,单位°
+angle_0 = 30
+
+#计算两个面的法向角度，并范围角度值
+def angle2v(v1,v2):
+    # 分别计算两个向量的模：
+    module_1=math.sqrt(v1.X**2+v1.Y**2+v1.Z**2)
+    module_2=math.sqrt(v2.X**2+v2.Y**2+v2.Z**2)
+    # 计算两个向量的点积
+    dot_value=v1.X*v2.X+v1.Y*v2.Y+v1.Z*v2.Z
+    # 计算夹角的cos值：
+    cos_theta=dot_value/(module_1*module_2)
+    # 求得夹角（弧度制）：
+    # 转换为角度值：
+    angle_value = math.degrees(math.acos(cos_theta))
+    return angle_value
+
+abc = 0
+def FindNeighborFace(faces,start=0,end=1):
+    start0 = len(faces)
+    #print start0
+    for i in range(start,end):
+        face = faces[i]
+        faces.AddRange(FindNeighborFace0(face,faces))
+        
+    end0 = len(faces)
+    if end0 == start0:
+        return 1
+    #print(end0)
+    # 继续寻找新面的相邻面
+    FindNeighborFace(faces, start0, end0)
+
+
+# 寻找此面的相邻面
+def FindNeighborFace0(face,faces):
+    nfaces=List[IDesignFace]()
+    #得到相邻的面
+    faces1 = face.AdjacentFaces
+    # 找到face的相邻面（不在faces中的），添加进nfaces中
+    for i in faces1:
+        if faces.Contains(i):
+            pass
+        else:
+            vx = face.GetFaceNormal(0,0)
+            vy = i.GetFaceNormal(0,0)
+            if angle2v(vx,vy) &lt; angle_0:
+                nfaces.Add(i)
+    return nfaces
+
+#选择一个选中高亮的面
+sel_f = Selection.GetActive()
+#得到相邻的面
+faces_0 = List[IDesignFace]()
+faces_0.Add(sel_f.GetItems[IDesignFace]()[0])
+p = FindNeighborFace(faces_0)
+selection = Selection.Create(faces_0).AddToActive()
+print(&quot;完成了!&quot;)
+</code></pre>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[ Marc中定义流变曲线]]></title>
+        <id>https://wang-xin-hang.github.io/post/marc-zhong-ding-yi-liu-bian-qu-xian/</id>
+        <link href="https://wang-xin-hang.github.io/post/marc-zhong-ding-yi-liu-bian-qu-xian/">
+        </link>
+        <updated>2023-07-08T15:22:56.000Z</updated>
+        <content type="html"><![CDATA[<h1 id="marc中定义流变曲线">Marc中定义流变曲线</h1>
+<blockquote>
+<p>在Marc中定义流变曲线必须使用.mat文件定义。.mat文件的命名应与在Marc中定义的材料名一致，提交计算前需要将.mat文件放在工作文件夹中或软件安装路径下AF_flowmat文件夹中。</p>
+</blockquote>
+<h2 id="mat文件解析">.mat文件解析</h2>
+<pre><code>1.0503 C 45 
+ 36, 18, 12, 3, 
+ 0.00, 1.00, 
+ 1.60, 40.00, 
+ 20.0, 1100.0, 
+=== CURVE_01 Sig_Yiel, T=20.0 C, Eps_dot=1.60 1/s 
+ 1, 20.0, 1.60, 
+0.00, 531.1, 
+0.04, 676.9, 
+0.06, 708.8, 
+0.08, 742.8, 
+0.09, 770.7, 
+0.12, 802.7, 
+0.14, 834.6, 
+0.18, 860.6, 
+0.22, 882.5, 
+0.26, 902.5, 
+0.30, 916.5, 
+0.36, 930.4, 
+0.45, 948.4, 
+0.51, 958.4, 
+0.65, 972.4, 
+0.72, 978.4, 
+0.85, 982.4, 
+1.00, 988.4, 
+</code></pre>
+<p>上述代码块中包含6大区域：</p>
+<ol>
+<li>第1行定义材料识别号及材料名称，其中1.0503为材料识别号，C 45为材料名称</li>
+<li>第2行分别定义流变曲线数量；每条流变曲线的数据点的数量；参考温度的数量；参考应变率的数量；</li>
+<li>第3行定义等效塑性应变的范围，<strong>起点等效塑性应变必须为0</strong></li>
+<li>第4行定义等效应变率的范围</li>
+<li>第5行定义温度范围</li>
+<li>之前每一行都为一个区域，定义同参数，第六行及以后为第六区域定义流变曲线，每一条曲线的定义包含三部分，即描述；曲线参数，曲线数据点；以===开头的当前曲线的描述，下一行分别定义曲线编号，当前曲线参考温度，当前曲线参考等效塑性应变率，接下来的每一行为等效塑性应变和真实等效冯米塞斯应力。完整.mat文件可以参考文章最后。</li>
+<li>Marc自带的.mat文件存放在安装路径下AF_flowmat文件夹中。</li>
+</ol>
+<h2 id="使用mat文件">使用.mat文件</h2>
+<ol>
+<li>
+<p>在Marc中新建一个材料，新建材料名称应与.mat文件名称相同，最好采用usr_material格式，.mat文件名为usr_material.mat。</p>
+</li>
+<li>
+<p>按照下图中顺序选择.mat文件。</p>
+</li>
+</ol>
+<figure data-type="image" tabindex="1"><img src="https://wang-xin-hang.github.io/post-images/1688829829009.png" alt="" loading="lazy"></figure>
+<ol start="3">
+<li>流变曲线最好每条都保持上升趋势，即随着等效塑性应变的增加，真实等效冯米塞斯应力也增加，否则计算可能不收敛。</li>
+</ol>
+<h2 id="最后">最后</h2>
+<p>本文参考Marc帮助文件《Volume C: Program Input》中的Material Database章节，如有错误，欢迎指正。</p>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Python中if __name__ == "__main__": 有什么作用]]></title>
+        <id>https://wang-xin-hang.github.io/post/python-zhong-if-__name__-__main__-you-shi-me-zuo-yong/</id>
+        <link href="https://wang-xin-hang.github.io/post/python-zhong-if-__name__-__main__-you-shi-me-zuo-yong/">
+        </link>
+        <updated>2022-10-16T10:49:23.000Z</updated>
+        <summary type="html"><![CDATA[<p>经常看到别人的python文件中会有以下几行命令，它们有什么作用呢？</p>
+]]></summary>
+        <content type="html"><![CDATA[<p>经常看到别人的python文件中会有以下几行命令，它们有什么作用呢？</p>
+<!-- more -->
+<pre><code class="language-python">if __name__ == '__main__':
+    main()
+</code></pre>
+<p>python文件既可以作为一个脚本被执行，也可以作为一个模块被引入 ；当我们直接执行print(__name__)时，结果是__main__.</p>
+<pre><code class="language-python">print(__name__)
+
+&gt;&gt;__main__
+</code></pre>
+<p>当python文件被当作一个模块被导入时，结果为hello，这是因为当python文件A被当作模块被导入B时，运行B，文件A中的命令会被执行一遍，当A被导入时，它的__name__属性会自动改为文件A的名字。</p>
+<pre><code class="language-python">import hello
+
+&gt;&gt;hello
+</code></pre>
+<p>因此，我们将__name__ 和'__main__'比较，就可以判断代码是作为脚本被执行还是作为模块被导入。</p>
+]]></content>
+    </entry>
+</feed>

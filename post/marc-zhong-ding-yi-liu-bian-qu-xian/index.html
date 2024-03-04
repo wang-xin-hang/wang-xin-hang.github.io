@@ -1,0 +1,227 @@
+<html>
+<head>
+    <meta charset="utf-8" />
+<meta name="description" content="" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+
+<title> Marc中定义流变曲线 | 道阻且长 行则将至</title>
+
+<link rel="shortcut icon" href="https://wang-xin-hang.github.io/favicon.ico?v=1709553271869">
+
+<link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://wang-xin-hang.github.io/styles/main.css">
+<!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.0/dist/css/bootstrap.min.css"> -->
+
+<script src="https://cdn.jsdelivr.net/npm/@highlightjs/cdn-assets/highlight.min.js"></script>
+<script src="https://cdn.bootcdn.net/ajax/libs/highlight.js/9.12.0/languages/dockerfile.min.js"></script>
+<script src="https://cdn.bootcdn.net/ajax/libs/highlight.js/9.12.0/languages//dart.min.js"></script>
+
+<!-- <script src="https://cdn.jsdelivr.net/npm/moment@2.27.0/moment.min.js"></script> -->
+<!-- <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"></script> -->
+<!-- <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script> -->
+<!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.0/dist/js/bootstrap.min.js"></script> -->
+<!-- DEMO JS -->
+<!--<script src="media/scripts/index.js"></script>-->
+
+
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.css">
+    
+</head>
+<body>
+<div class="main gt-bg-theme-color-first">
+    <nav class="navbar navbar-expand-lg">
+    <a class="navbar-brand" href="/">
+        <img class="user-avatar" src="/images/avatar.png" alt="头像">
+        <div class="site-name gt-c-content-color-first">
+            道阻且长 行则将至
+        </div>
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation" id="changeNavbar">
+        <i class="fas fa-bars gt-c-content-color-first" style="font-size: 18px"></i>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <div class="navbar-nav mr-auto" style="text-align: center">
+            
+            <div class="nav-item">
+                
+                <a href="/" class="menu gt-a-link">
+                    首页
+                </a>
+                
+            </div>
+            
+            <div class="nav-item">
+                
+                <a href="/archives" class="menu gt-a-link">
+                    归档
+                </a>
+                
+            </div>
+            
+            <div class="nav-item">
+                
+                <a href="/tags" class="menu gt-a-link">
+                    标签
+                </a>
+                
+            </div>
+            
+            <div class="nav-item">
+                
+                <a href="/post/about" class="menu gt-a-link">
+                    关于
+                </a>
+                
+            </div>
+            
+        </div>
+        <div style="text-align: center">
+            <form id="gridea-search-form" style="position: relative" data-update="1709553271869"
+                action="/search/">
+                <input class="search-input" autocomplete="off" spellcheck="false" name="q" placeholder="搜索文章" />
+                <i class="fas fa-search gt-c-content-color-first" style="position: absolute; top: 9px; left: 10px;"></i>
+            </form>
+        </div>
+    </div>
+</nav>
+<script>
+    /* 移动端导航栏展开/收起切换 */
+    document.getElementById('changeNavbar').onclick = () => {
+        var element = document.getElementById('navbarSupportedContent');
+        if (element.style.display === 'none' || element.style.display === '') {
+            element.style.display = 'block';
+        } else {
+            element.style.display = 'none';
+        }
+    }
+</script>
+
+    <div class="post-container">
+        <div class="post-detail gt-bg-theme-color-second">
+            <article class="gt-post-content">
+                <h2 class="post-title">
+                     Marc中定义流变曲线
+                </h2>
+                <div class="post-info">
+                    <time class="post-time gt-c-content-color-first">
+                        · 2023-07-08 ·
+                    </time>
+                    
+                        <a href="https://wang-xin-hang.github.io/tag/5hMV4mZOX/" class="post-tags">
+                            # Marc
+                        </a>
+                    
+                </div>
+                <div class="post-content">
+                    <h1 id="marc中定义流变曲线">Marc中定义流变曲线</h1>
+<blockquote>
+<p>在Marc中定义流变曲线必须使用.mat文件定义。.mat文件的命名应与在Marc中定义的材料名一致，提交计算前需要将.mat文件放在工作文件夹中或软件安装路径下AF_flowmat文件夹中。</p>
+</blockquote>
+<h2 id="mat文件解析">.mat文件解析</h2>
+<pre><code>1.0503 C 45 
+ 36, 18, 12, 3, 
+ 0.00, 1.00, 
+ 1.60, 40.00, 
+ 20.0, 1100.0, 
+=== CURVE_01 Sig_Yiel, T=20.0 C, Eps_dot=1.60 1/s 
+ 1, 20.0, 1.60, 
+0.00, 531.1, 
+0.04, 676.9, 
+0.06, 708.8, 
+0.08, 742.8, 
+0.09, 770.7, 
+0.12, 802.7, 
+0.14, 834.6, 
+0.18, 860.6, 
+0.22, 882.5, 
+0.26, 902.5, 
+0.30, 916.5, 
+0.36, 930.4, 
+0.45, 948.4, 
+0.51, 958.4, 
+0.65, 972.4, 
+0.72, 978.4, 
+0.85, 982.4, 
+1.00, 988.4, 
+</code></pre>
+<p>上述代码块中包含6大区域：</p>
+<ol>
+<li>第1行定义材料识别号及材料名称，其中1.0503为材料识别号，C 45为材料名称</li>
+<li>第2行分别定义流变曲线数量；每条流变曲线的数据点的数量；参考温度的数量；参考应变率的数量；</li>
+<li>第3行定义等效塑性应变的范围，<strong>起点等效塑性应变必须为0</strong></li>
+<li>第4行定义等效应变率的范围</li>
+<li>第5行定义温度范围</li>
+<li>之前每一行都为一个区域，定义同参数，第六行及以后为第六区域定义流变曲线，每一条曲线的定义包含三部分，即描述；曲线参数，曲线数据点；以===开头的当前曲线的描述，下一行分别定义曲线编号，当前曲线参考温度，当前曲线参考等效塑性应变率，接下来的每一行为等效塑性应变和真实等效冯米塞斯应力。完整.mat文件可以参考文章最后。</li>
+<li>Marc自带的.mat文件存放在安装路径下AF_flowmat文件夹中。</li>
+</ol>
+<h2 id="使用mat文件">使用.mat文件</h2>
+<ol>
+<li>
+<p>在Marc中新建一个材料，新建材料名称应与.mat文件名称相同，最好采用usr_material格式，.mat文件名为usr_material.mat。</p>
+</li>
+<li>
+<p>按照下图中顺序选择.mat文件。</p>
+</li>
+</ol>
+<figure data-type="image" tabindex="1"><img src="https://wang-xin-hang.github.io/post-images/1688829829009.png" alt="" loading="lazy"></figure>
+<ol start="3">
+<li>流变曲线最好每条都保持上升趋势，即随着等效塑性应变的增加，真实等效冯米塞斯应力也增加，否则计算可能不收敛。</li>
+</ol>
+<h2 id="最后">最后</h2>
+<p>本文参考Marc帮助文件《Volume C: Program Input》中的Material Database章节，如有错误，欢迎指正。</p>
+
+                </div>
+            </article>
+        </div>
+
+        
+            <div class="next-post">
+                <div class="next gt-c-content-color-first">下一篇</div>
+                <a href="https://wang-xin-hang.github.io/post/python-zhong-if-__name__-__main__-you-shi-me-zuo-yong/" class="post-title gt-a-link">
+                    Python中if __name__ == &#34;__main__&#34;: 有什么作用
+                </a>
+            </div>
+        
+
+        
+
+        
+
+        
+
+        <div class="site-footer gt-c-content-color-first">
+    <div class="slogan gt-c-content-color-first"><h2>南风知我意，吹梦到西洲。</h2></div>
+    <div class="social-container">
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+    </div>
+    <div class="footer-info">
+        
+    </div>
+    <div>
+        Theme <a href="https://github.com/imhanjie/gridea-theme-pure" target="_blank">Pure</a>, Powered by <a
+                href="https://gridea.dev" target="_blank">Gridea</a> | <a href="https://wang-xin-hang.github.io/atom.xml" target="_blank">RSS</a>
+    </div>
+</div>
+
+<script>
+  hljs.highlightAll()
+</script>
+
+    </div>
+</div>
+</body>
+</html>

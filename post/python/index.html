@@ -1,0 +1,328 @@
+<html>
+<head>
+    <meta charset="utf-8" />
+<meta name="description" content="" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+
+<title>Python | 道阻且长 行则将至</title>
+
+<link rel="shortcut icon" href="https://wang-xin-hang.github.io/favicon.ico?v=1709553271869">
+
+<link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://wang-xin-hang.github.io/styles/main.css">
+<!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.0/dist/css/bootstrap.min.css"> -->
+
+<script src="https://cdn.jsdelivr.net/npm/@highlightjs/cdn-assets/highlight.min.js"></script>
+<script src="https://cdn.bootcdn.net/ajax/libs/highlight.js/9.12.0/languages/dockerfile.min.js"></script>
+<script src="https://cdn.bootcdn.net/ajax/libs/highlight.js/9.12.0/languages//dart.min.js"></script>
+
+<!-- <script src="https://cdn.jsdelivr.net/npm/moment@2.27.0/moment.min.js"></script> -->
+<!-- <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"></script> -->
+<!-- <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script> -->
+<!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.0/dist/js/bootstrap.min.js"></script> -->
+<!-- DEMO JS -->
+<!--<script src="media/scripts/index.js"></script>-->
+
+
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.css">
+    
+</head>
+<body>
+<div class="main gt-bg-theme-color-first">
+    <nav class="navbar navbar-expand-lg">
+    <a class="navbar-brand" href="/">
+        <img class="user-avatar" src="/images/avatar.png" alt="头像">
+        <div class="site-name gt-c-content-color-first">
+            道阻且长 行则将至
+        </div>
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation" id="changeNavbar">
+        <i class="fas fa-bars gt-c-content-color-first" style="font-size: 18px"></i>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <div class="navbar-nav mr-auto" style="text-align: center">
+            
+            <div class="nav-item">
+                
+                <a href="/" class="menu gt-a-link">
+                    首页
+                </a>
+                
+            </div>
+            
+            <div class="nav-item">
+                
+                <a href="/archives" class="menu gt-a-link">
+                    归档
+                </a>
+                
+            </div>
+            
+            <div class="nav-item">
+                
+                <a href="/tags" class="menu gt-a-link">
+                    标签
+                </a>
+                
+            </div>
+            
+            <div class="nav-item">
+                
+                <a href="/post/about" class="menu gt-a-link">
+                    关于
+                </a>
+                
+            </div>
+            
+        </div>
+        <div style="text-align: center">
+            <form id="gridea-search-form" style="position: relative" data-update="1709553271869"
+                action="/search/">
+                <input class="search-input" autocomplete="off" spellcheck="false" name="q" placeholder="搜索文章" />
+                <i class="fas fa-search gt-c-content-color-first" style="position: absolute; top: 9px; left: 10px;"></i>
+            </form>
+        </div>
+    </div>
+</nav>
+<script>
+    /* 移动端导航栏展开/收起切换 */
+    document.getElementById('changeNavbar').onclick = () => {
+        var element = document.getElementById('navbarSupportedContent');
+        if (element.style.display === 'none' || element.style.display === '') {
+            element.style.display = 'block';
+        } else {
+            element.style.display = 'none';
+        }
+    }
+</script>
+
+    <div class="post-container">
+        <div class="post-detail gt-bg-theme-color-second">
+            <article class="gt-post-content">
+                <h2 class="post-title">
+                    Python
+                </h2>
+                <div class="post-info">
+                    <time class="post-time gt-c-content-color-first">
+                        · 2024-03-04 ·
+                    </time>
+                    
+                        <a href="https://wang-xin-hang.github.io/tag/WII-7vf-K/" class="post-tags">
+                            # Python
+                        </a>
+                    
+                </div>
+                <div class="post-content">
+                    <h1 id="python27">Python2.7</h1>
+<h2 id="写出中文内容">写出中文内容</h2>
+<pre><code class="language-python">sstr1 = u&quot;中文&quot;
+with open(path,&quot;w&quot;) as file_obj:
+    file_obj.write(sstr1.encode(&quot;utf-8&quot;))
+file_obj.close()
+</code></pre>
+<h1 id="python3">Python3</h1>
+<h2 id="案例">案例</h2>
+<h3 id="得到文件名">得到文件名</h3>
+<pre><code class="language-python">import tkinter
+from tkinter import filedialog
+#去掉tk窗口
+root = tkinter.Tk()
+root.withdraw()
+#弹出文件选择窗口
+a = filedialog.askopenfilenames(filetypes=[(&quot;x_t&quot;,&quot;.x_t&quot;),(&quot;ALL&quot;,&quot;.*&quot;)])
+print(a)
+</code></pre>
+<h3 id="获取文件名">获取文件名</h3>
+<h4 id="获取文件夹名列表">获取文件夹名列表</h4>
+<p>要获取指定路径下的所有文件夹，我们需要使用os模块的<code>listdir()</code>函数来列出指定路径中的所有文件和文件夹。然后，我们可以使用<code>isdir()</code>函数来检查每个路径是否是文件夹。</p>
+<p>下面是一个示例代码，演示了如何获取指定路径下的所有文件夹：</p>
+<pre><code class="language-python">import os
+
+def get_folders(path):
+    folders = []
+    files = os.listdir(path)
+    for file in files:
+        if os.path.isdir(os.path.join(path, file)):
+            folders.append(file)
+    return folders
+
+path = &quot;/path/to/directory&quot;  # 将路径替换为你想要获取文件夹的路径
+folders = get_folders(path)
+print(folders)
+</code></pre>
+<p>在这个示例中，我们使用<code>get_folders()</code>函数获取指定路径下的所有文件夹，并将它们存储在一个列表中。然后，我们使用<code>print()</code>函数打印这个文件夹列表。</p>
+<h4 id="获取文件夹的完整路径">获取文件夹的完整路径</h4>
+<p>如果你想要获取每个文件夹的完整路径，而不仅仅是它们的名称，你可以使用<code>join()</code>函数将路径和文件夹名称连接起来。</p>
+<p>下面是修改后的代码示例，演示了如何获取每个文件夹的完整路径：</p>
+<pre><code class="language-python">import os
+
+def get_folders_path(path):
+    folders = []
+    files = os.listdir(path)
+    for file in files:
+        folder_path = os.path.join(path, file)
+        if os.path.isdir(folder_path):
+            folders.append(folder_path)
+    return folders
+
+path = &quot;/path/to/directory&quot;  # 将路径替换为你想要获取文件夹的路径
+folders = get_folders_path(path)
+print(folders[0].replace(&quot;\\&quot;, &quot;/&quot;))
+</code></pre>
+<p>在这个示例中，我们使用<code>get_folders_path()</code>函数获取指定路径下的所有文件夹的完整路径，并将它们存储在一个列表中。然后，我们使用<code>print()</code>函数打印这个路径列表。</p>
+<h4 id="递归获取所有子文件夹">递归获取所有子文件夹</h4>
+<p>如果你想要获取指定路径下的所有子文件夹，包括子文件夹的子文件夹，你可以使用递归的方式来实现。我们可以修改<code>get_folders()</code>或<code>get_folders_path()</code>函数，使它们递归地调用自身，直到没有更多文件夹为止。</p>
+<p>下面是一个递归获取所有子文件夹的示例代码：</p>
+<pre><code class="language-python">import os
+
+def get_all_folders(path):
+    folders = []
+    for root, dirs, files in os.walk(path):
+        for dir in dirs:
+            folder_path = os.path.join(root, dir)
+            folders.append(folder_path)
+    return folders
+
+path = &quot;/path/to/directory&quot;  # 将路径替换为你想要获取文件夹的路径
+folders = get_all_folders(path)
+print(folders)
+</code></pre>
+<p>在这个示例中，我们使用<code>get_all_folders()</code>函数递归地获取指定路径下的所有文件夹，并将它们存储在一个列表中。我们使用<code>os.walk()</code>函数遍历指定路径下的所有文件夹和文件，并使用<code>join()</code>函数将路径和文件夹名称连接起来。</p>
+<h2 id="打包方法">打包方法</h2>
+<h3 id="pyinstaller打包方法">PyInstaller打包方法</h3>
+<p>将需要打包的文件与图标（.ico）放在同一个文件夹下，打包命令如下：</p>
+<pre><code class="language-python">import os
+import subprocess
+from pathlib import Path
+import nicegui
+
+cmd = [
+    'PyInstaller',
+    'ER.py',
+    '--name',
+    'myapp', # name of your app
+    '--onefile',
+    '--windowed',
+    '--clean',
+    '-i=any.ico',
+    #'--windowed', # prevent console appearing, only use with ui.run(native=True, ...)
+    '--add-data', f'{Path(nicegui.__file__).parent}{os.pathsep}nicegui'
+]
+subprocess.call(cmd)
+</code></pre>
+<h3 id="nuitka打包方法">Nuitka打包方法</h3>
+<h2 id="输出图片的像素坐标及颜色">输出图片的像素坐标及颜色</h2>
+<pre><code class="language-python">from PIL import Image
+
+# 打开图像文件
+image = Image.open('PixPin2024-01-2621-18-56-imageonline.co-8628153.png')
+
+# 获取图像的宽度和高度
+width, height = image.size
+
+# 获取图像的像素数据
+pixels = image.load()
+
+# 创建一个集合，用于存储不同的颜色
+colors = set()
+
+# 遍历每个像素
+for y in range(height):
+    for x in range(width):
+        # 将当前像素的 RGB 值添加到集合中
+        colors.add(pixels[x, y])
+
+# 输出不同颜色的数量
+print(&quot;该图片共有&quot;, len(colors), &quot;种颜色&quot;)
+
+
+dict_pixel_color = {}
+# 遍历每个像素，并输出其坐标和颜色
+for x in range(width):
+    for y in range(height):
+
+        color = image.getpixel((x, y))
+        if isinstance(color, int):
+            color = (color, color, color)
+        color = '#{:02x}{:02x}{:02x}'.format(*color)
+        Pixel = x+0.5,(y+0.5)*(-1)
+        if color in dict_pixel_color.keys():
+            list_pixel = dict_pixel_color[color]
+            list_pixel.append(Pixel)
+            dict_pixel_color[color] = list_pixel
+        else:
+            list_pixel = []
+            list_pixel.append(Pixel)
+            dict_pixel_color[color] = list_pixel
+
+# 打开文件，如果不存在就创建它
+file = open(r&quot;D:\AA-Work\Hypermesh\test\image\textfile.txt&quot;, &quot;w+&quot;)
+for i in dict_pixel_color:
+    # 写入内容到文件中
+    file.write(i+&quot;;&quot;)
+    for b in dict_pixel_color[i]:
+        file.write(str(b[0])+&quot;,&quot;+str(b[1])+&quot;:&quot;)
+    file.write(&quot;\n&quot;)
+
+# 关闭文件
+file.close()
+</code></pre>
+<h2 id="数据库sqlite3模块的使用">数据库SQLite3模块的使用</h2>
+<h3 id="使用数据的宏观过程">使用数据的宏观过程</h3>
+<figure data-type="image" tabindex="1"><img src="https://wang-xin-hang.github.io/post-images/1709553094727.png" alt="" loading="lazy"></figure>
+
+                </div>
+            </article>
+        </div>
+
+        
+            <div class="next-post">
+                <div class="next gt-c-content-color-first">下一篇</div>
+                <a href="https://wang-xin-hang.github.io/post/nicegui/" class="post-title gt-a-link">
+                    NiceGui
+                </a>
+            </div>
+        
+
+        
+
+        
+
+        
+
+        <div class="site-footer gt-c-content-color-first">
+    <div class="slogan gt-c-content-color-first"><h2>南风知我意，吹梦到西洲。</h2></div>
+    <div class="social-container">
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+    </div>
+    <div class="footer-info">
+        
+    </div>
+    <div>
+        Theme <a href="https://github.com/imhanjie/gridea-theme-pure" target="_blank">Pure</a>, Powered by <a
+                href="https://gridea.dev" target="_blank">Gridea</a> | <a href="https://wang-xin-hang.github.io/atom.xml" target="_blank">RSS</a>
+    </div>
+</div>
+
+<script>
+  hljs.highlightAll()
+</script>
+
+    </div>
+</div>
+</body>
+</html>
